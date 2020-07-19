@@ -36,7 +36,7 @@
     "hapi-pagination": "^3.0.0",
     "hapi-rate-limit": "^4.1.0",
     "hapi-trailing-slash": "^3.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mysqls": "^1.1.1",
     "nanomatch": "^1.2.13"
   },
