@@ -27,7 +27,7 @@
     "@hapi/hapi": "^19.1.1",
     "@hapi/joi": "^17.1.0",
     "@hapi/yar": "^10.0.0",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "deepmerge": "^4.2.2",
     "dottie": "^2.0.2",
     "expand-home-dir": "0.0.3",
