@@ -98,7 +98,7 @@ export class Server {
                     },
                     limit: {
                         name: 'limit',
-                        default: 5
+                        default: 25
                     },
                     pagination: {
                         name: 'pagination',
@@ -109,6 +109,7 @@ export class Server {
                 meta: {
                     location: 'body', // The metadata will be put in the response body
                     name: 'metadata', // The meta object will be called metadata
+                    baseUri:"http://zhuangbiao.haipaitv.cn:4003",
                     count: {
                         active: true,
                         name: 'count'
@@ -135,7 +136,7 @@ export class Server {
             plugin: require('hapi-mysql2'),
             options: {
                 // enableKeepAlive and keepAliveInitialDelay require at least mysql2@2.1.0 to work
-                settings: 'mysql://root:ldx574425450@localhost/dwn?enableKeepAlive=true&keepAliveInitialDelay=10000&connectionLimit=1000',
+                settings: 'mysql://root:sqlapp2020xx@129.204.249.237/csgy?enableKeepAlive=true&keepAliveInitialDelay=10000&connectionLimit=1000',
                 decorate: true
             }
         });
@@ -161,10 +162,12 @@ export class Server {
         server.auth.strategy('simple', 'basic', { validate });
         server.auth.default('simple');
 
+
         await server.register({
             plugin: require("./handlers"),
-            routes: { prefix: "/api" },
+            // routes: { prefix: "/v1" },
         });
+
         await server.register({
             plugin: require('hapi-i18n'),
             options: {
@@ -176,9 +179,11 @@ export class Server {
             plugin: require('@hapi/yar'),
             options: {
                 storeBlank: false,
+
                 cookieOptions: {
                     password: '88922bdf219aec83ce25de927d2b50c9',
-                    isSecure: false
+                    isSecure: false,
+                    isHttpOnly:true
                 }
             }
         });
@@ -198,15 +203,6 @@ export class Server {
             },
         });
 
-        // @TODO: remove this with the release of 3.0 - adds support for /api and /api/v2
-        server.ext("onRequest", (request: Hapi.Request, h: Hapi.ResponseToolkit) => {
-            if (request.url) {
-                const path: string = request.url.pathname.replace("/v2", "");
-                request.setUrl(request.url.search ? `${path}${request.url.search}` : path);
-            }
-
-            return h.continue;
-        });
 
         await mountServer(`Public ${name.toUpperCase()} API`, server);
     }

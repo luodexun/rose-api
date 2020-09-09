@@ -22,7 +22,6 @@ export class ServerCache {
             };
         }
         this.server.method(name, method, options);
-
         return this;
     }
 

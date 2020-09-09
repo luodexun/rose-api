@@ -9,6 +9,7 @@ export class BlockchainController {
             let { data, sum} = await request.server.methods.information(request);
             return h.response({results: data, totalCount: sum.count});
         } catch (err) {
+            console.log(err);
             return Boom.badImplementation('terrible implementation');
         }
     }

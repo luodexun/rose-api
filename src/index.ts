@@ -1,23 +1,8 @@
-import { Server } from "../src/server";
+import { Server } from "./server";
 const config = {
     enabled: true,
     host: process.env.CORE_API_HOST || "0.0.0.0",
     port: process.env.CORE_API_PORT || 4003,
-    cache : [
-        {
-            name: 'redis_cache',
-            provider: {
-                constructor: require('@hapi/catbox-redis'),
-                options: {
-                    partition : 'my_cached_data',
-                    host: '127.0.0.1',
-                    port: 6379,
-                    db: 3,
-                    tls: {},
-                }
-            }
-        }
-    ],
     // @see https://hapijs.com/api#-serveroptionstls
     ssl: {
         enabled: process.env.CORE_API_SSL,
