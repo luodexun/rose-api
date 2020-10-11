@@ -7,6 +7,15 @@ export const registerRoutes = (server: Hapi.Server): void => {
 
     server.route({
         method: "GET",
+        path: "/v1/productionCate",
+        handler: controller.productionCate,
+        options: {
+            validate: Schema.paginationDefine,
+        },
+    });
+
+    server.route({
+        method: "GET",
         path: "/v1/productionMine",
         handler: controller.productionMine,
         options: {

@@ -2,6 +2,7 @@ import { createServer, mountServer } from "./utils";
 import * as plugins from "./plugins";
 import Hapi from "@hapi/hapi";
 import Bcrypt from "bcrypt";
+import {resolve} from "path";
 // import { get } from "dottie";
 
 export class Server {
@@ -15,7 +16,7 @@ export class Server {
             host: this.config.host,
             port: this.config.port,
         };
-
+        require('env2')(resolve(__dirname,'../.env'));
         if (this.config.enabled) {
             this.http = await createServer(options);
             this.http.app.config = this.config;

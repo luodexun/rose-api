@@ -21,3 +21,9 @@ export const goods:object ={
         production_cate:Joi.number().integer().description("作品分类")
     }),
 };
+
+export const details:object ={
+    payload: Joi.object({
+        id:Joi.number().required().min(0).description('商品ID')
+    }),
+};

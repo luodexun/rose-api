@@ -13,6 +13,16 @@ export const registerRoutes = (server: Hapi.Server): void => {
             validate: Schema.loginWithWx,
         },
     });
+
+    server.route({
+        method: "POST",
+        path: "/v1/loginWithUser",
+        handler: controller.loginWithUser,
+        options: {
+            validate: Schema.loginWithUser,
+        },
+    });
+
     server.route({
         method: "POST",
         path: "/v1/userInformation",
@@ -23,5 +33,23 @@ export const registerRoutes = (server: Hapi.Server): void => {
         method: "POST",
         path: "/v1/outLogin",
         handler: controller.outLogin
+    });
+
+    server.route({
+        method: "POST",
+        path: "/v1/code",
+        handler: controller.code,
+        options: {
+            validate: Schema.code,
+        },
+    });
+
+    server.route({
+        method: "POST",
+        path: "/v1/mobileBind",
+        handler: controller.mobileBind,
+        options: {
+            validate: Schema.mobileBind,
+        },
     });
 };

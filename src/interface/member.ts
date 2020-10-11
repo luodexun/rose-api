@@ -6,4 +6,5 @@ export interface memberInfomation {
     status:number
     login_time:number
     avatar:string
+    mobile:string
 }

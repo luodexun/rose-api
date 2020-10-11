@@ -4,7 +4,13 @@ import { paginateServer } from "../../../utils"
 import Hapi from "@hapi/hapi";
 // import  mssql from "mssql";
 
-
+const productionCate = async request => {
+    const pool = request.mysql.pool;
+    let {limit, page} = request.query;
+    let [data] = await pool.query(`select id,name from cs_production_cate limit ${(page-1)*limit},${limit};`);
+    let [[ sum ]] = await pool.query('select count(*) as count from cs_production_cate');
+    return { data, sum}
+};
 const productionMine = async (request: Hapi.Request|any, uid:number)=> {
     const pool = request.mysql.pool;
     let {limit, page} = request.query;
@@ -25,7 +31,9 @@ export const registerMethods = server => {
     ServerCache.make(server)
         .method("productionMine", productionMine, 6, request => ({
             ...paginateServer(request)
-        })).method("productionRecommendation", productionRecommendation, 6, request => ({
+        })).method("productionCate", productionCate, 6, request => ({
+        ...paginateServer(request)
+       })).method("productionRecommendation", productionRecommendation, 6, request => ({
         ...paginateServer(request)
     }));
 };

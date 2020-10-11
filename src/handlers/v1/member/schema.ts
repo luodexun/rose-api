@@ -17,3 +17,31 @@ export const loginWithWx:object = {
         }
     )
 };
+
+export const loginWithUser:object = {
+    payload: Joi.object(
+        {
+            nickname:Joi.string().required().max(200).description('昵称'),
+            openid:Joi.string().required().max(200).description('开放id'),
+            unionid:Joi.string().required().max(200).description('唯一id'),
+            avatar:Joi.string().required().max(200).description('用户头像'),
+        }
+    )
+};
+
+export const code:object = {
+    payload: Joi.object(
+        {
+            mobile:Joi.number().required().description('用户手机号码')
+        }
+    )
+};
+
+export const mobileBind:object = {
+    payload: Joi.object(
+        {
+            mobile:Joi.number().required().description('用户手机号码'),
+            code:Joi.number().required().description('用户手机验证码')
+        }
+    )
+};
