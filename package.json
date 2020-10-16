@@ -9,7 +9,8 @@
     "build:watch": "yarn clean && yarn compile -w",
     "clean": "del dist",
     "compile": "./node_modules/typescript/bin/tsc",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "test": "ts-node ./src/index.ts"
   },
   "keywords": [
     "api"
@@ -21,15 +22,17 @@
     "@arkecosystem/crypto": "^2.6.1",
     "@hapi/basic": "^6.0.0",
     "@hapi/boom": "^9.0.0",
-    "@hapi/catbox": "^11.0.1",
+    "@hapi/catbox": "^11.1.0",
     "@hapi/catbox-redis": "^5.0.5",
     "@hapi/good": "^9.0.0",
     "@hapi/hapi": "^19.1.1",
     "@hapi/joi": "^17.1.0",
     "@hapi/yar": "^10.0.0",
+    "@types/mssql": "^6.0.2",
     "bcrypt": "^3.0.8",
     "deepmerge": "^4.2.2",
     "dottie": "^2.0.2",
+    "env2": "^2.2.2",
     "expand-home-dir": "0.0.3",
     "hapi-i18n": "^3.0.0",
     "hapi-mysql2": "^2.5.0",
@@ -37,8 +40,11 @@
     "hapi-rate-limit": "^4.1.0",
     "hapi-trailing-slash": "^3.1.0",
     "lodash": "^4.17.15",
+    "mssql": "^6.2.0",
     "mysqls": "^1.1.1",
-    "nanomatch": "^1.2.13"
+    "nanomatch": "^1.2.13",
+    "tencentcloud-sdk-nodejs": "^3.0.257",
+    "wechat-oauth-ts": "^1.9.0"
   },
   "devDependencies": {
     "@sindresorhus/tsconfig": "^0.7.0",
@@ -51,7 +57,9 @@
     "@types/micromatch": "^4.0.1",
     "@types/node": "^13.7.1",
     "@types/vision": "^5.3.6",
+    "cross-env": "^7.0.2",
     "del-cli": "^3.0.0",
+    "hotnode": "0.0.8",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
