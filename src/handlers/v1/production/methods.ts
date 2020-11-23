@@ -14,7 +14,7 @@ const productionCate = async request => {
 const productionMine = async (request: Hapi.Request|any, uid:number)=> {
     const pool = request.mysql.pool;
     let {limit, page} = request.query;
-    let [data] = await pool.query('select `id`,`frame_out_id`,`frame_out_ratio`,`frame_inner_id`,`frame_inner_ratio`,`paperboard_out_id`,`paperboard_out_ratio`,`paperboard_inner_id`,`paperboard_inner_ratio`,`background_id`,`scene_id`,`scene_origin_x`,`scene_origin_y`,`beginning_img`,`ending_img` from cs_production_uid where uid = ? limit ?,?;',[uid,(page-1)*limit,limit]);
+    let [data] = await pool.query('select `id`,`frame_out_id`,`frame_out_ratio`,`frame_inner_id`,`frame_inner_ratio`,`paperboard_out_id`,`paperboard_out_ratio`,`paperboard_inner_id`,`paperboard_inner_ratio`,`background_id`,`scene_id`,`scene_origin_x`,`scene_origin_y`,`beginning_img`,`ending_img`,`goods_url` from cs_production_uid where uid = ? limit ?,?;',[uid,(page-1)*limit,limit]);
     let [[ sum ]] = await pool.query('select count(*) as count from cs_production_uid where uid = ?',[uid]);
     return { data, sum}
 };

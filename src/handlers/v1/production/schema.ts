@@ -26,7 +26,16 @@ export const mine:object ={
             scene_origin_x:Joi.number().default(0).description('场景x坐标占比'),
             scene_origin_y:Joi.number().default(0).description('场景y坐标占比'),
             beginning_img:Joi.string().max(200).required().description('用户初始图片'),
-            ending_img:Joi.string().max(200).required().description('用户完成图片')
+            ending_img:Joi.string().max(200).required().description('用户完成图片'),
+            goods_url:Joi.string().max(200).default('').description('商品连接')
+        }
+    )
+};
+
+export const del:object ={
+    payload: Joi.object(
+        {
+            production_id:Joi.number().required().max(10).description('作品id')
         }
     )
 };

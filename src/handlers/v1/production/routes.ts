@@ -39,4 +39,12 @@ export const registerRoutes = (server: Hapi.Server): void => {
             validate: Schema.mine,
         },
     });
+    server.route({
+        method: "POST",
+        path: "/v1/productionMineDelete",
+        handler: controller.productionMineDelete,
+        options: {
+            validate: Schema.del,
+        },
+    });
 };
