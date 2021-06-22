@@ -14,9 +14,10 @@ import * as FrameV2 from "./v2/frame";
 import * as PaperboardV2 from "./v2/paperboard";
 import * as SceneV2 from  "./v2/scene";
 import * as BackgroundV2 from "./v2/backgroud";
+import * as Upload from "./upload"
 export = {
     async register(server: Hapi.Server): Promise<void> {
-        const modules = [Information, Background, Paperboard, Frame, Scene, Member, Production, Goods, FrameV2, PaperboardV2, SceneV2, BackgroundV2];
+        const modules = [Upload, Information, Background, Paperboard, Frame, Scene, Member, Production, Goods, FrameV2, PaperboardV2, SceneV2, BackgroundV2];
 
         for (const module of modules) {
 

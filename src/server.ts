@@ -110,7 +110,7 @@ export class Server {
                 meta: {
                     location: 'body', // The metadata will be put in the response body
                     name: 'metadata', // The meta object will be called metadata
-                    baseUri:"http://zhuangbiao.haipaitv.cn:4003",
+                    baseUri:process.env.DOMAIN||"http://zhuangbiao.haipaitv.cn:4003",
                     count: {
                         active: true,
                         name: 'count'
@@ -137,7 +137,7 @@ export class Server {
             plugin: require('hapi-mysql2'),
             options: {
                 // enableKeepAlive and keepAliveInitialDelay require at least mysql2@2.1.0 to work
-                settings: 'mysql://root:sqlapp2020xx@129.204.249.237/csgy?enableKeepAlive=true&keepAliveInitialDelay=10000&connectionLimit=1000',
+                settings: 'mysql://root:sqlapp2020xx@120.27.19.189/csart?enableKeepAlive=true&keepAliveInitialDelay=10000&connectionLimit=1000',
                 decorate: true
             }
         });

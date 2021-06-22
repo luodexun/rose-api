@@ -2,7 +2,7 @@ import { Server } from "./server";
 const config = {
     enabled: true,
     host: process.env.CORE_API_HOST || "0.0.0.0",
-    port: process.env.CORE_API_PORT || 4003,
+    port: process.env.CORE_API_PORT || 1102,
     // @see https://hapijs.com/api#-serveroptionstls
     ssl: {
         enabled: process.env.CORE_API_SSL,
