@@ -39,7 +39,7 @@
     "hapi-pagination": "^3.0.0",
     "hapi-rate-limit": "^4.1.0",
     "hapi-trailing-slash": "^3.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mssql": "^6.2.0",
     "mysqls": "^1.1.1",
